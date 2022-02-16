@@ -11,3 +11,94 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* RESPONSIVE */
+@media screen {
+  .container {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  /* HEADER */
+  h1 {
+    font-weight: 900;
+    font-size: 50px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+  span {
+    color: indigo;
+  }
+
+  /* FORM */
+  .divForm {
+    text-align: center;
+  }
+  .divForm > p {
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    padding: 3%;
+    box-shadow: 0.5rem 0.5rem 1rem;
+    height: 70%;
+  }
+
+  label {
+    margin-top: 1rem;
+  }
+
+  form > button {
+    margin: 0.5rem auto;
+    width: 5rem;
+  }
+
+  /* LISTPACIENT */
+  .divListPacient {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+  main {
+    display: flex;
+  }
+
+  /* HEADER */
+  h1 {
+    width: 50%;
+  }
+
+  /* FORM */
+  .divForm {
+    width: 40%;
+  }
+  .divListPacient {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1020px;
+  }
+  .divForm {
+    width: 40%;
+  }
+}

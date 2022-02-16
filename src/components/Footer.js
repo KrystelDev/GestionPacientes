@@ -4,13 +4,12 @@ import styled from "styled-components";
 const FooterFlex = styled.div`
   display: flex;
   justify-content: space-between;
-  position: fixed;
   left: 0px;
   bottom: 0px;
-  width: 100%;
   text-shadow: 0 0 0.02rem black, 0 0 0.8rem white;
   font-weight: bold;
   width: 100vw;
+  position: fixed;
 `;
 
 const Signature = styled.img`

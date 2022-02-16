@@ -1,8 +1,10 @@
 function Header() {
   return (
     <header>
-      <h1>{"título header".toUpperCase()}</h1>
-      <p>parrafo header</p>
+      <h1>
+        Gestión de
+        <span> {"pacientes".toUpperCase()}</span>
+      </h1>
     </header>
   );
 }
