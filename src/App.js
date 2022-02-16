@@ -1,9 +1,13 @@
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Form from "./components/Form";
+
 function App() {
   return (
     <div className="App">
-      <header>HEADER</header>
-      <main>MAIN</main>
-      <footer>FOOTER</footer>
+      <Header />
+      <Form />
+      <Footer />
     </div>
   );
 }
