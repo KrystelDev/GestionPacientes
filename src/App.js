@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
-import ListPatient from "./components/ListPatient";
+import ListPatients from "./components/ListPatients";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Header />
       <main className="container">
         <Form />
-        <ListPatient />
+        <ListPatients />
       </main>
       <Footer />
     </div>

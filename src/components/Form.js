@@ -5,9 +5,9 @@ const Form = () => {
     <div className="divForm">
       <h2>Formulario</h2>
       <p>
-        Añade pacientes y <span>administralos</span>
+        Añade pacientes y <span>administralos</span>.
       </p>
-      <form className="">
+      <form>
         <label htmlFor="name">{"Nombre".toUpperCase()}</label>
         <input id="name" type="text" placeholder="Ej. Sheila" />
         <label htmlFor="subname">{"Apellidos".toUpperCase()}</label>
