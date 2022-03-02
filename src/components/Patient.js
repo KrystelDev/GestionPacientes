@@ -1,4 +1,4 @@
-const Pacient = ({ element, index, deletePatient }) => {
+const Patient = ({ element, index, deletePatient }) => {
   //Destructuring de objectos
   const { name, surName, telf, date, mess } = element;
 
@@ -41,4 +41,4 @@ const Pacient = ({ element, index, deletePatient }) => {
   );
 };
 
-export default Pacient;
+export default Patient;

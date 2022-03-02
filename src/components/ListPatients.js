@@ -1,4 +1,4 @@
-import Pacient from "./Pacient";
+import Patient from "./Patient";
 
 const listPatients = ({ patients, deletePatient }) => {
   return (
@@ -9,7 +9,7 @@ const listPatients = ({ patients, deletePatient }) => {
       </p>
       <div>
         {patients.map((element, index) => (
-          <Pacient
+          <Patient
             key={index}
             element={element}
             index={index}

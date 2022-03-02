@@ -8,11 +8,11 @@ function App() {
   // List saved patients:
   const [patients, setPatients] = useState([]);
 
-  //
+  // Delete seleted patioen
   function deletePatient(idPatients) {
     let copyPatients = [...patients];
     copyPatients.splice(idPatients, 1);
-    setPatients(patients);
+    setPatients(copyPatients);
   }
 
   return (
