@@ -3,9 +3,6 @@
 import { useState } from "react";
 
 const Form = () => {
-  //useState("")and not useState() because ...
-  //https://stackoverflow.com/questions/37427508/react-changing-an-uncontrolled-input
-
   const [name, setName] = useState("");
   const [surName, setSurName] = useState("");
   const [telf, setTelf] = useState("");
