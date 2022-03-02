@@ -2,12 +2,18 @@
 
 import { useState } from "react";
 
-const Form = () => {
+const Form = ({ patients, setPatients }) => {
+  // Attributes of each object in the List saved patients
   const [name, setName] = useState("");
   const [surName, setSurName] = useState("");
   const [telf, setTelf] = useState("");
   const [date, setDate] = useState("");
   const [mess, setMess] = useState("");
+
+  // Current patient
+  const patientCurrent = { name, surName, telf, date, mess };
+
+  // Warning only if necessary
   const [warning, setWarning] = useState(false);
   const messWarning = (
     <div className="warning">Todos los datos son obligatorios</div>
@@ -21,6 +27,7 @@ const Form = () => {
       return;
     } else {
       setWarning(false);
+      setPatients([...patients, patientCurrent]);
     }
   };
 

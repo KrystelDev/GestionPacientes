@@ -1,6 +1,6 @@
 import Pacient from "./Pacient";
 
-const listPatients = () => {
+const listPatients = ({ patients, deletePatient }) => {
   return (
     <div className="divListPacient">
       <h2>Listado de Pacientes:</h2>
@@ -8,12 +8,14 @@ const listPatients = () => {
         Dar de Baja, edita o gestiona <span>pacientes</span>.
       </p>
       <div>
-        <Pacient />
-        <Pacient />
-        <Pacient />
-        <Pacient />
-        <Pacient />
-        <Pacient />
+        {patients.map((element, index) => (
+          <Pacient
+            key={index}
+            element={element}
+            index={index}
+            deletePatient={deletePatient}
+          />
+        ))}
       </div>
     </div>
   );

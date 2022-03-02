@@ -1,39 +1,41 @@
-const Pacient = () => {
+const Pacient = ({ element, index, deletePatient }) => {
+  //Destructuring de objectos
+  const { name, surName, telf, date, mess } = element;
+
   return (
     <form>
       <p htmlFor="name">
         Nombre:
-        <span id="name">Sheila</span>
+        <span id="name">{name}</span>
       </p>
 
       <p htmlFor="subname">
         Apellidos:
-        <span id="subname">Gracía Clot</span>
+        <span id="subname">{surName}</span>
       </p>
 
       <p htmlFor="tel">
         Teléfono:
-        <span id="tel">666555444</span>
+        <span id="tel">{telf}</span>
       </p>
 
       <p htmlFor="date">
         Fecha de alta:
-        <span id="date">14/02/2022</span>
+        <span id="date">{date}</span>
       </p>
 
       <p className="mess" htmlFor="mess">
         Síntomas:
         <span id="mess" type="text" rows="4" cols="30">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-          pariatur dicta, autem quis soluta quia incidunt culpa quasi earum
-          quae. Labore, nisi dignissimos ad sunt necessitatibus omnis magnam
-          dolor ut.
+          {mess}
         </span>
       </p>
 
       <section>
         <button type="button">Editar</button>
-        <button type="button">Eliminar</button>
+        <button type="button" onClick={() => deletePatient(index)}>
+          Eliminar
+        </button>
       </section>
     </form>
   );
