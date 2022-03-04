@@ -1,8 +1,8 @@
 //rafce
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Form = ({ patients, setPatients }) => {
+const Form = ({ patients, setPatients, patient }) => {
   // Attributes of each object in the List saved patients
   const [name, setName] = useState("");
   const [surName, setSurName] = useState("");
@@ -10,14 +10,25 @@ const Form = ({ patients, setPatients }) => {
   const [date, setDate] = useState("");
   const [mess, setMess] = useState("");
 
-  // Current patient
-  const patientCurrent = { name, surName, telf, date, mess };
+  // // Selected patient
+  // ;
 
   // Warning only if necessary
   const [warning, setWarning] = useState(false);
   const messWarning = (
     <div className="warning">Todos los datos son obligatorios</div>
   );
+
+  useEffect(() => {
+    if (patient) {
+      setName(patient.name);
+      setSurName(patient.surName);
+      setTelf(patient.telf);
+      setDate(patient.date);
+      setMess(patient.mess);
+    } else {
+    }
+  }, [patient]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +38,12 @@ const Form = ({ patients, setPatients }) => {
       return;
     } else {
       setWarning(false);
-      setPatients([...patients, patientCurrent]);
+      setPatients([...patients, { name, surName, telf, date, mess }]);
+      setName("");
+      setSurName("");
+      setTelf("");
+      setDate("");
+      setMess("");
     }
   };
 
@@ -82,7 +98,8 @@ const Form = ({ patients, setPatients }) => {
           cols="30"
           placeholder="Ej. Dolor adominal con nauseas"
         />
-        <button type="submit">Guardar</button>
+        {/* {patient ? "Editar" : "Guardar"} */}
+        <button type="submit"> Guardar</button>
       </form>
     </div>
   );

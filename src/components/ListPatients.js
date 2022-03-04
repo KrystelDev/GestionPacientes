@@ -1,6 +1,6 @@
 import Patient from "./Patient";
 
-const listPatients = ({ patients, deletePatient }) => {
+const listPatients = ({ patients, deletePatient, setPatient }) => {
   return (
     <div className="divListPacient">
       <h2>Listado de Pacientes:</h2>
@@ -14,6 +14,7 @@ const listPatients = ({ patients, deletePatient }) => {
             element={element}
             index={index}
             deletePatient={deletePatient}
+            setPatient={setPatient}
           />
         ))}
       </div>

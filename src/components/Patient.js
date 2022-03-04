@@ -1,4 +1,4 @@
-const Patient = ({ element, index, deletePatient }) => {
+const Patient = ({ element, index, deletePatient, setPatient }) => {
   //Destructuring de objectos
   const { name, surName, telf, date, mess } = element;
 
@@ -32,7 +32,9 @@ const Patient = ({ element, index, deletePatient }) => {
       </p>
 
       <section>
-        <button type="button">Editar</button>
+        <button type="button" onClick={() => setPatient(element)}>
+          Editar
+        </button>
         <button type="button" onClick={() => deletePatient(index)}>
           Eliminar
         </button>
