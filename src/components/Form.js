@@ -4,14 +4,11 @@ import { useEffect, useState } from "react";
 
 const Form = ({ patients, setPatients, patient }) => {
   // Attributes of each object in the List saved patients
-  const [name, setName] = useState("");
-  const [surName, setSurName] = useState("");
-  const [telf, setTelf] = useState("");
-  const [date, setDate] = useState("");
-  const [mess, setMess] = useState("");
-
-  // // Selected patient
-  // ;
+  const [name, setName] = useState();
+  const [surName, setSurName] = useState();
+  const [telf, setTelf] = useState();
+  const [date, setDate] = useState();
+  const [mess, setMess] = useState();
 
   // Warning only if necessary
   const [warning, setWarning] = useState(false);
@@ -32,18 +29,24 @@ const Form = ({ patients, setPatients, patient }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ([name, surName, telf, date, mess].includes("")) {
+    if (!name || !surName || !telf || !date || !mess) {
       setWarning(true);
       console.log("Todos los datos son obligatorios");
       return;
     } else {
       setWarning(false);
-      setPatients([...patients, { name, surName, telf, date, mess }]);
+      if (!patients[patient.index]) {
+        setPatients([...patients, { name, surName, telf, date, mess }]);
+      } else {
+        patients[patient.index] = { name, surName, telf, date, mess };
+        setPatients(patient);
+      }
       setName("");
       setSurName("");
       setTelf("");
       setDate("");
       setMess("");
+      patient.index("");
     }
   };
 
@@ -59,7 +62,7 @@ const Form = ({ patients, setPatients, patient }) => {
         <input
           id="name"
           type="text"
-          value={name}
+          value={name ? name : ""}
           placeholder="Ej. Sheila"
           onChange={(e) => setName(e.target.value)}
         />
@@ -67,7 +70,7 @@ const Form = ({ patients, setPatients, patient }) => {
         <input
           id="subname"
           type="tex"
-          value={surName}
+          value={surName ? surName : ""}
           placeholder="Ej. Gracía Clot"
           onChange={(e) => setSurName(e.target.value)}
         />
@@ -75,7 +78,7 @@ const Form = ({ patients, setPatients, patient }) => {
         <input
           id="tel"
           type="tel"
-          value={telf}
+          value={telf ? telf : ""}
           placeholder="Ej. 666555444"
           onChange={(e) => setTelf(e.target.value)}
         />
@@ -83,7 +86,7 @@ const Form = ({ patients, setPatients, patient }) => {
         <input
           id="date"
           type="date"
-          value={date}
+          value={date ? date : ""}
           onChange={(e) => setDate(e.target.value)}
         />
         <label htmlFor="mess" type="text">
@@ -92,7 +95,7 @@ const Form = ({ patients, setPatients, patient }) => {
         <textarea
           id="mess"
           type="text"
-          value={mess}
+          value={mess ? mess : ""}
           onChange={(e) => setMess(e.target.value)}
           rows="4"
           cols="30"

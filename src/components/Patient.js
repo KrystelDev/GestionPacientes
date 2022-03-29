@@ -1,6 +1,7 @@
 const Patient = ({ element, index, deletePatient, setPatient }) => {
   //Destructuring de objectos
   const { name, surName, telf, date, mess } = element;
+  element.index = index;
 
   return (
     <form>
