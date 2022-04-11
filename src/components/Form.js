@@ -2,13 +2,20 @@
 
 import { useEffect, useState } from "react";
 
-const Form = ({ patients, setPatients, patient }) => {
+const Form = ({
+  patients,
+  setPatients,
+  patient,
+  setPatient,
+  savedEdit,
+  setSavedEdit,
+}) => {
   // Attributes of each object in the List saved patients
-  const [name, setName] = useState();
-  const [surName, setSurName] = useState();
-  const [telf, setTelf] = useState();
-  const [date, setDate] = useState();
-  const [mess, setMess] = useState();
+  const [name, setName] = useState("");
+  const [surName, setSurName] = useState("");
+  const [telf, setTelf] = useState("");
+  const [date, setDate] = useState("");
+  const [mess, setMess] = useState("");
 
   // Warning only if necessary
   const [warning, setWarning] = useState(false);
@@ -23,13 +30,12 @@ const Form = ({ patients, setPatients, patient }) => {
       setTelf(patient.telf);
       setDate(patient.date);
       setMess(patient.mess);
-    } else {
     }
   }, [patient]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !surName || !telf || !date || !mess) {
+    if ([name, surName, telf, date, mess].includes("")) {
       setWarning(true);
       console.log("Todos los datos son obligatorios");
       return;
@@ -39,14 +45,15 @@ const Form = ({ patients, setPatients, patient }) => {
         setPatients([...patients, { name, surName, telf, date, mess }]);
       } else {
         patients[patient.index] = { name, surName, telf, date, mess };
-        setPatients(patient);
+        setPatients(patients);
       }
       setName("");
       setSurName("");
       setTelf("");
       setDate("");
       setMess("");
-      patient.index("");
+      setPatient("");
+      setSavedEdit("Guardar");
     }
   };
 
@@ -101,8 +108,7 @@ const Form = ({ patients, setPatients, patient }) => {
           cols="30"
           placeholder="Ej. Dolor adominal con nauseas"
         />
-        {/* {patient ? "Editar" : "Guardar"} */}
-        <button type="submit"> Guardar</button>
+        <button type="submit">{savedEdit}</button>
       </form>
     </div>
   );

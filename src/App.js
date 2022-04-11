@@ -8,7 +8,7 @@ function App() {
   // List saved patients:
   const [patients, setPatients] = useState([]);
   // Patient in input:
-  const [patient, setPatient] = useState({});
+  const [patient, setPatient] = useState("");
 
   // Delete seleted patient
   function deletePatient(idPatients) {
@@ -17,15 +17,27 @@ function App() {
     setPatients(copyPatients);
   }
 
+  //Saved o Edit
+  const [savedEdit, setSavedEdit] = useState("Guardar");
+
   return (
     <div>
       <Header />
       <main className="container">
-        <Form patients={patients} setPatients={setPatients} patient={patient} />
+        <Form
+          patients={patients}
+          setPatients={setPatients}
+          patient={patient}
+          setPatient={setPatient}
+          savedEdit={savedEdit}
+          setSavedEdit={setSavedEdit}
+        />
         <ListPatients
           patients={patients}
           deletePatient={deletePatient}
           setPatient={setPatient}
+          savedEdit={savedEdit}
+          setSavedEdit={setSavedEdit}
         />
       </main>
       <Footer />

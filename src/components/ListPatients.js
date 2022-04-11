@@ -1,6 +1,11 @@
 import Patient from "./Patient";
 
-const listPatients = ({ patients, deletePatient, setPatient }) => {
+const listPatients = ({
+  patients,
+  deletePatient,
+  setPatient,
+  setSavedEdit,
+}) => {
   return (
     <div className="divListPacient">
       <h2>Listado de Pacientes:</h2>
@@ -15,6 +20,7 @@ const listPatients = ({ patients, deletePatient, setPatient }) => {
             index={index}
             deletePatient={deletePatient}
             setPatient={setPatient}
+            setSavedEdit={setSavedEdit}
           />
         ))}
       </div>
