@@ -3,11 +3,13 @@ import Footer from "./components/Footer";
 import Form from "./components/Form";
 import ListPatients from "./components/ListPatients";
 import { useState } from "react";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
   // List saved patients:
-  const [patients, setPatients] = useState([]);
-  // Patient in input:
+  const [patients, setPatients] = useLocalStorage(0, []);
+
+  // Patient in inputs:
   const [patient, setPatient] = useState("");
 
   // Delete seleted patient
